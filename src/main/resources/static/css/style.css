@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+
+.form-group{
+	margin-top: 2em;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+.text{
+	font-size: 1em;
+}
+
+.tma{
+	font-size: 2em;
+	margin-right: 1em;
+}
+
+.bg-dark{
+	margin: 0em;
+	padding: 1em;
+	color: #FFF;
+}
+
+.sec{
+	margin-bottom: 1em;
+}
+
+.sec1{
+	margin-bottom: 1.5em;
+}
+.ref{
+	margin-top: 1em;
+	margin-left: 2em;
+	margin-right: 2em;
+	font-size: 1.25em;
+}
+
+.sradio{
+	border: 0px;
+    width: 1.5em;
+	height: 1.5em;
+}

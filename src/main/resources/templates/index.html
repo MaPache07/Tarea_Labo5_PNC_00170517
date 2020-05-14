@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<meta charset="ISO-8859-1">
+<title>Estudiante</title>
+</head>
+<body>
+	<h1 class="bg-dark">Ingresar Estudiante</h1>
+	<form th:action="@{/insert}" th:object="${estudiante}" method="post">
+		<div class="form-group">
+			<div class="sec">
+				<label class="text">Nombre: </label>
+				<input type="text" th:field="*{nombre}" class="form-control"/>
+				<span class="text" th:errors="*{nombre}" style="color: #FF0000"></span><br>
+			</div>
+			<div class="sec">
+				<label class="text">Apellido: </label>
+				<input type="text" th:field="*{apellido}" class="form-control"/>
+				<span class="text" th:errors="*{apellido}" style="color: #FF0000"></span><br>
+			</div>
+			<div class="sec">
+				<label class="text">Carne: </label>
+				<input type="text" th:field="*{carne}" class="form-control"/>
+				<span class="text" th:errors="*{carne}" style="color: #FF0000"></span><br>
+			</div>
+			<div class="sec">
+				<label class="text">Carrera: </label>
+				<input type="text" th:field="*{carrera}" class="form-control"/>
+				<span class="text" th:errors="*{carrera}" style="color: #FF0000"></span><br>
+			</div>
+			<input class="btn btn-primary" type="submit" value="Agregar Estudiante"/>
+		</div>
+	</form>
+	<form class="form-group" th:action="@{/listado}" method="post"><input class="btn btn-primary" type="submit" value="Listado de estudiantes"/></form>
+</body>
+</html>

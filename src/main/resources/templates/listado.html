@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<meta charset="ISO-8859-1">
+<title>Estudiante</title>
+</head>
+<body>
+	<h1 class="bg-dark">Listado de Estudiantes</h1>
+	<table class="table">
+		<thead>
+			<th scope="col">Nombre</th>
+			<th scope="col">Apellido</th>
+			<th scope="col">Carne</th>
+			<th scope="col">Carrera</th>
+		</thead>
+		<th:block th:each="estudiante, row: ${estudiantes}">
+		<tr>
+			<td th:text="${estudiante.nombre}"/>
+			<td th:text="${estudiante.apellido}"/>
+			<td th:text="${estudiante.carne}"/>
+			<td th:text="${estudiante.carrera}"/>
+		</tr>
+		</th:block>	
+	</table>
+	<br>
+	<form class="form-group" th:action="@{/inicio}" method="post"><input class="btn btn-primary" type="submit" value="Regresar"/></form>
+</body>
+</html>
