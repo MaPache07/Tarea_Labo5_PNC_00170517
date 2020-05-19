@@ -11,6 +11,7 @@
 	<h1 class="bg-dark">Listado de Estudiantes</h1>
 	<table class="table">
 		<thead>
+			<th scope="col">#</th>
 			<th scope="col">Nombre</th>
 			<th scope="col">Apellido</th>
 			<th scope="col">Carne</th>
@@ -18,6 +19,7 @@
 		</thead>
 		<th:block th:each="estudiante, row: ${estudiantes}">
 		<tr>
+			<td th:text="${estudiante.cUsuario}"/>
 			<td th:text="${estudiante.nombre}"/>
 			<td th:text="${estudiante.apellido}"/>
 			<td th:text="${estudiante.carne}"/>

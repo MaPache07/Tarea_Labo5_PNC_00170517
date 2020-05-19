@@ -35,5 +35,14 @@
 		</div>
 	</form>
 	<form class="form-group" th:action="@{/listado}" method="post"><input class="btn btn-primary" type="submit" value="Listado de estudiantes"/></form>
+	<form th:action="@{/delete}" method="post">
+		<div class="form-group">
+			<div class="sec">
+				<label class="text">Borrar por codigo de estudiante: </label>
+				<input type="number" class="form-control" name="cusuario" required/>
+			</div>
+			<input class="btn btn-primary" type="submit" value="Borrar estudiante"/>
+		</div>
+	</form>
 </body>
 </html>

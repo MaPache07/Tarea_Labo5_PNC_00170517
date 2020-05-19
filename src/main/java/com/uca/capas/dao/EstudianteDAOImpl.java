@@ -37,6 +37,7 @@ public class EstudianteDAOImpl implements EstudianteDAO{
 	@Transactional
 	public void delete(Integer cUsuario) throws DataAccessException {
 		Estudiante estudiante = em.find(Estudiante.class, cUsuario);
-		em.remove(estudiante);
+		if(estudiante != null)
+			em.remove(estudiante);
 	}
 }

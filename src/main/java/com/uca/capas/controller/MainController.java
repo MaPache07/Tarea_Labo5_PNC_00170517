@@ -9,16 +9,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.capas.dao.EstudianteDAO;
 import com.uca.capas.domain.Estudiante;
+import com.uca.capas.service.EstudianteService;
 
 @Controller
 public class MainController {
 	
 	@Autowired
-	private EstudianteDAO estudianteDAO;
+	private EstudianteService es;
 	
 	@RequestMapping("/inicio")
 	public ModelAndView initMain() {
@@ -35,7 +37,7 @@ public class MainController {
 		if(!result.hasErrors()) {
 			mav.addObject("estudiante", new Estudiante());
 			try {
-				estudianteDAO.insert(estudiante);
+				es.insert(estudiante);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -48,8 +50,23 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		List<Estudiante> estudiantes = null;
 		try {
-			estudiantes = estudianteDAO.findAll();
+			estudiantes = es.findAll();
 		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		mav.setViewName("listado");
+		mav.addObject("estudiantes", estudiantes);
+		return mav;
+	}
+	
+	@RequestMapping("/delete")
+	public ModelAndView eliminar(@RequestParam(value="cusuario") int id) {
+		ModelAndView mav = new ModelAndView();
+		List<Estudiante> estudiantes = null;
+		try {
+			es.delete(id);
+			estudiantes = es.findAll();
+		} catch(Exception e){
 			e.printStackTrace();
 		}
 		mav.setViewName("listado");
