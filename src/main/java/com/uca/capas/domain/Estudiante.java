@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(schema="public", name="estudiante")
@@ -18,9 +19,11 @@ public class Estudiante {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer cUsuario;
 	@Column(name="nombre")
+	@Size(max=30, message="El campo no debe contener mas de 30 caracteres")
 	@NotEmpty(message="El campo Nombre no puede ir vacio")
 	private String nombre;
 	@Column(name="apellido")
+	@Size(max=30, message="El campo no debe contener mas de 30 caracteres")
 	@NotEmpty(message="El campo Apellido no puede ir vacio")
 	private String apellido;
 	@Column(name="carne")
@@ -28,6 +31,7 @@ public class Estudiante {
 	@NotEmpty(message="El campo Carne no puede ir vacio")
 	private String carne;
 	@Column(name="carrera")
+	@Size(max=30, message="El campo no debe contener mas de 30 caracteres")
 	@NotEmpty(message="El campo Carrera no puede ir vacio")
 	private String carrera;
 	

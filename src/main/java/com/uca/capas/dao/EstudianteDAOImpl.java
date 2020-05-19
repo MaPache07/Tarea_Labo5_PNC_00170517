@@ -32,4 +32,11 @@ public class EstudianteDAOImpl implements EstudianteDAO{
 	public void insert(Estudiante estudiante) throws DataAccessException {
 		em.persist(estudiante);
 	}
+
+	@Override
+	@Transactional
+	public void delete(Integer cUsuario) throws DataAccessException {
+		Estudiante estudiante = em.find(Estudiante.class, cUsuario);
+		em.remove(estudiante);
+	}
 }
